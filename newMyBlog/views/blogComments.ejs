@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=UTF-8">
+  <title>Johnny的博客 - SYSIT个人博客</title>
+	<link rel="stylesheet" href="/stylesheets/space2011.css" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/jquery.css" media="screen">
+  <style type="text/css">
+    body,table,input,textarea,select {font-family:Verdana,sans-serif,宋体;}	
+  </style>
+</head>
+<body>
+	<% include header.ejs %>
+	<% include menu.ejs %>
+    <div id="AdminContent">
+	<div class="MainForm BlogCommentManage">
+  	<h3>共有 <%= comm.length %> 篇博客评论，每页显示 20 个，共 1 页</h3>
+  	<ul>
+		<%
+		 for(var i=0;i<comm.length;i++){
+			%>
+		<li id="cmt111" class="row_1">
+			<span class="portrait"><a href="#" target="_blank"><img src="/images/portrait.gif" alt="Johnny" title="Johnny" class="SmallPortrait" user="154693" align="absmiddle"></a></span>
+		<span class="comment">
+		<div class="user"><b><%= comm[i].username %></b> 评论了 <a href="viewPost_logined.htm" target="_blank"><%= comm[i].title %></a></div>
+		<div class="content"><p><%= comm[i].commcon %></p></div>
+		<div class="opts">
+			<span style="float:right;color:blue;cursor:pointer;">
+			<span>删除</span> |
+			<span>删除此人所有评论</span>
+			</span>
+			<%= comm[i].comm_time.toLocaleString() %>
+		</div>
+		</span>
+			<div class="clear"></div>
+		</li>
+			 <%
+		 }
+		    %>
+	  </ul>
+	</div>
+	</div>
+	<div class="clear"></div>
+	</div>
+	</div>
+		<div class="clear"></div>
+		<div id="OSC_Footer">© 赛斯特(WWW.SYSIT.ORG)</div>
+	</div>
+</body>
+</html>

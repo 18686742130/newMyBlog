@@ -1,0 +1,36 @@
+<div id="OSC_Screen"><!-- #BeginLibraryItem "/Library/OSC_Banner.lbi" -->
+    <div id="OSC_Banner">
+        <div id="OSC_Slogon">Johnny's Blog</div>
+        <div id="OSC_Channels">
+            <ul>
+                <li><a href="#" class="project" title="点击设置心情"><%= user.smile?user.smile:'点击设置心情' %></a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div><!-- #EndLibraryItem --><div id="OSC_Topbar">
+        <div id="VisitorInfo">
+            当前访客身份：<%= user?user.username:'游客'%>
+            <%
+             if(user){
+            %>
+                 [ <a href="/logout">退出</a>  ]
+            <%
+             }else{
+            %>
+                 [ <a href="/login">登录</a> | <a href="/register">注册</a> ]
+            <%
+             }
+            %>
+				<span id="OSC_Notification">
+			<a href="inbox.ejs" class="msgbox" title="进入我的留言箱">你有<em>0</em>新留言</a>
+					</span>
+        </div>
+        <div id="SearchBar">
+            <form action="Search">
+                <input name="user" value="154693" type="hidden">
+                <input id="txt_q" name="q" class="SERACH" placeholder="在此空间内搜索" type="text">
+                <input class="SUBMIT" value="搜索" type="submit">
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
